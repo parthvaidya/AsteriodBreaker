@@ -6,6 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
 
     public bool thrusting;
+    public Bullet bullets;
     public float turnSpeed = 1.0f;
     private Rigidbody2D _rigidBody;
     public float thrustSpeed = 1.0f;
@@ -31,6 +32,11 @@ public class NewBehaviourScript : MonoBehaviour
         {
             _turnDirection = 0f;
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
     }
 
     private void FixedUpdate()
@@ -44,4 +50,13 @@ public class NewBehaviourScript : MonoBehaviour
             _rigidBody.AddTorque(this.turnSpeed * _turnDirection);
         }
     }
+
+
+    private void Shoot()
+    {
+        Bullet bullet = Instantiate(this.bullets, this.transform.position, this.transform.rotation);
+        bullet.Project(this.transform.up);
+    }
+
+
 }
