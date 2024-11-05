@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Game over");
+        //Time.timeScale = 0; also add it as one for restart option
 
         //yet to implement it
     }
