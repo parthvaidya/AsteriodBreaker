@@ -42,4 +42,34 @@ public class Asteroid : MonoBehaviour
         // drag to make them stop moving
         rb.AddForce(direction * this.movementSpeed);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            if ((this.size * 0.5f) >= this.minSize)
+            {
+                CreateSplit();
+                CreateSplit();
+            }
+            FindObjectOfType<GameManager>().AsteroidDestoryed(this);
+            Destroy(this.gameObject);
+        }
+    }
+
+
+    private Asteroid CreateSplit()
+    {
+        Vector2 position = this.transform.position;
+        position += Random.insideUnitCircle * 0.5f;
+
+        // Create the new asteroid at half the size of the current
+        Asteroid half = Instantiate(this, position, this.transform.rotation);
+        half.size = this.size * 0.5f;
+
+        // Set a random trajectory
+        half.SetTrajectory(Random.insideUnitCircle.normalized );
+
+        return half;
+    }
 }

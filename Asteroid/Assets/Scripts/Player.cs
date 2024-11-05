@@ -58,5 +58,26 @@ public class NewBehaviourScript : MonoBehaviour
         bullet.Project(this.transform.up);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            _rigidBody.velocity = Vector3.zero;
+            _rigidBody.angularVelocity = 0f;
 
+            //GameManager.Instance.OnPlayerDeath(this);
+            FindObjectOfType<GameManager>().PlayerDied();
+        }
+    }
+
+
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        
+    }
 }
