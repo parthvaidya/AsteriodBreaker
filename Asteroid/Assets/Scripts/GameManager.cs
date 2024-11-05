@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         this.player.gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
-    private void UpdateLivesUI()
+    public void UpdateLivesUI()
     {
         livesText.text = "Lives: " + lives;
     }
@@ -98,4 +98,6 @@ public class GameManager : MonoBehaviour
         score = 0;
         UpdateScoreUI();
     }
+
+
 }
