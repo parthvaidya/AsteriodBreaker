@@ -19,12 +19,14 @@ public class WinnerScreenButtons : MonoBehaviour
 
     private void RestartGame()
     {
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(1); 
     }
 
     
     private void GoToLobby()
     {
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(0); 
     }
 }

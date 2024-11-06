@@ -56,6 +56,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         Bullet bullet = Instantiate(this.bullets, this.transform.position, this.transform.rotation);
         bullet.Project(this.transform.up);
+        SoundManager.Instance.Play(Sounds.Shoot);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
