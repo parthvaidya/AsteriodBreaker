@@ -377,6 +377,8 @@ MonoBehaviour:
     soundClip: {fileID: 8300000, guid: 3698c001a4b99aa43aa3750a1c33b979, type: 3}
   - soundType: 7
     soundClip: {fileID: 8300000, guid: d76c71e98617e1c41a5cdc490eb1bee1, type: 3}
+  - soundType: 2
+    soundClip: {fileID: 8300000, guid: 400c44a256b5eeb46897fd93bd481a00, type: 3}
   soundEffect: {fileID: 1356307432}
   soundMusic: {fileID: 2074290152}
 --- !u!4 &605777933
