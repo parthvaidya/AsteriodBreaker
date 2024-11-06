@@ -12,6 +12,7 @@ Asteroid Breaker is an action-packed space game where you control a spaceship th
 In Asteroid Breaker, the player controls a spaceship and must navigate through a dangerous asteroid field. The goal is to destroy asteroids to increase the score, while dodging asteroid collisions to survive. Players have 3 lives and can collect various power-ups to aid in the journey. Reach a score of 250 to win!
 Also the video is as follows:-----------------------
 
+
 # Features:
 1 Powerups:
 The game offers three exciting power-ups to assist the player:
@@ -30,14 +31,17 @@ c) Crash Sound when the player loses a life or even the asteroids.
 -Game Over Screen: Appears when the player runs out of lives.
 -Victory Screen: Triggered when the player reaches a score of 250.
 
+
 # Installations:
 1 Clone the Repository
 2 Open the project in Unity
 3 Load the Lobby
 
+
 # Controls:
-Move Ship:	Arrow keys / WAD (Left /Right /Up)
-Shoot:	Spacebar/MouseClick
+1. Move Ship:	Arrow keys / WAD (Left /Right /Up)
+2. Shoot:	Spacebar/MouseClick
+
 
 # Credits:
 This Game is inspired by the classic Asteroid Breaker with some touches by : Parth Vaidya !!!
