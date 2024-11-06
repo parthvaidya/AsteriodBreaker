@@ -32,7 +32,6 @@ public class Powerups : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             ApplyPowerup();
-            SoundManager.Instance.Play(Sounds.collectItem);
             Destroy(gameObject);
         }
     }

@@ -10,13 +10,11 @@ public class EndScreen : MonoBehaviour
 
     private void Start()
     {
-
         lobbyButton.onClick.AddListener(GoToLobby);
     }
 
     private void GoToLobby()
     {
-        SoundManager.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(0);
     }
 }

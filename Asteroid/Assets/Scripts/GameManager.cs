@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     {
         this.explosion.transform.position = this.player.transform.position;
         this.explosion.Play();
-        SoundManager.Instance.Play(Sounds.PlayerDeath);
         this.lives--;
 
         UpdateLivesUI();
