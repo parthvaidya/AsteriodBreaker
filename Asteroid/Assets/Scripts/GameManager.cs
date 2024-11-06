@@ -15,12 +15,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
     int score = 0;
-
+    public GameOverController gameOverController;
+    public int scoreMultiplier = 1;
+    public float scoreBoostDuration = 5.0f;
 
     public void Start()
     {
         UpdateLivesUI();
         UpdateScoreUI();
+        gameOverController.gameObject.SetActive(false);
     }
     public void PlayerDied()
     {
@@ -34,10 +37,7 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
 
-        else
-        {
-            Invoke(nameof(Respawn), this.respawnTime);
-        }
+        
         
 
     }
@@ -54,8 +54,9 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Game over");
-        //Time.timeScale = 0; also add it as one for restart option
-
+        Time.timeScale = 0;
+        gameOverController.PlayerDied();
+        this.enabled = false;
         //yet to implement it
     }
 
@@ -84,16 +85,26 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore(int increment)
     {
-        score += increment;
+        score += increment * scoreMultiplier;
         UpdateScoreUI();
 
         
-        if (score >= 250)
+        if (score >= 300)
         {
             SceneManager.LoadScene(3); 
         }
     }
+    public void ActivateScoreBooster()
+    {
+        StartCoroutine(ScoreBoosterCoroutine());
+    }
 
+    private IEnumerator ScoreBoosterCoroutine()
+    {
+        scoreMultiplier = 2; // Double the score
+        yield return new WaitForSeconds(scoreBoostDuration);
+        scoreMultiplier = 1; // Reset to normal after duration
+    }
     public void ResetScore()
     {
         score = 0;

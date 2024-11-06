@@ -5,7 +5,7 @@ using UnityEngine;
 public class Powerups : MonoBehaviour
 {
 
-    public enum PowerupType { IncreaseSpeed, ExtraBullets, ExtraLives }
+    public enum PowerupType { IncreaseSpeed, ScoreBooster, ExtraLives }
     public PowerupType powerupType;
 
     private Rigidbody2D _rigidbody;
@@ -46,8 +46,8 @@ public class Powerups : MonoBehaviour
             case PowerupType.IncreaseSpeed:
                 gameManager.player.thrustSpeed += 2f;
                 break;
-            case PowerupType.ExtraBullets:
-                gameManager.player.bullets.maxLifetime += 3; 
+            case PowerupType.ScoreBooster:
+                gameManager.ActivateScoreBooster();
                 break;
             case PowerupType.ExtraLives:
                 gameManager.lives += 2;

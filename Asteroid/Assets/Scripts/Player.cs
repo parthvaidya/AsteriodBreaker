@@ -11,6 +11,7 @@ public class NewBehaviourScript : MonoBehaviour
     private Rigidbody2D _rigidBody;
     public float thrustSpeed = 1.0f;
     private float _turnDirection;
+   
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
