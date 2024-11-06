@@ -14,16 +14,20 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
+    public TextMeshProUGUI achievementPopupText;
+    public TextMeshProUGUI popupText;
     int score = 0;
     public GameOverController gameOverController;
     public int scoreMultiplier = 1;
     public float scoreBoostDuration = 5.0f;
+    private bool hasReached200Points = false;
 
     public void Start()
     {
         UpdateLivesUI();
         UpdateScoreUI();
         gameOverController.gameObject.SetActive(false);
+        achievementPopupText.gameObject.SetActive(false);
     }
     public void PlayerDied()
     {
@@ -50,6 +54,18 @@ public class GameManager : MonoBehaviour
 
         //also add scoring logic here
         IncreaseScore(10);
+    }
+
+    public void ShowPopupMessage(string message)
+    {
+        popupText.text = message;
+        popupText.gameObject.SetActive(true);
+        Invoke(nameof(HidePopupMessage), 2.0f);  // Hide after 2 seconds
+    }
+
+    private void HidePopupMessage()
+    {
+        popupText.gameObject.SetActive(false);
     }
 
     private void GameOver()
@@ -88,8 +104,8 @@ public class GameManager : MonoBehaviour
     {
         score += increment * scoreMultiplier;
         UpdateScoreUI();
+        CheckAchievements();
 
-        
         if (score >= 300)
         {
             SceneManager.LoadScene(3); 
@@ -105,6 +121,32 @@ public class GameManager : MonoBehaviour
         scoreMultiplier = 2; // Double the score
         yield return new WaitForSeconds(scoreBoostDuration);
         scoreMultiplier = 1; // Reset to normal after duration
+    }
+
+    private void CheckAchievements()
+    {
+        if (!hasReached200Points && score >= 200)
+        {
+            hasReached200Points = true;
+            ShowAchievementPopup("Congratulation Player you just Scored 200 points!!");
+            Debug.Log("200 Points!!");
+        }
+
+        
+    }
+
+    private void ShowAchievementPopup(string message)
+    {
+        achievementPopupText.text = message;
+        achievementPopupText.gameObject.SetActive(true); // Show the popup
+        SoundManager.Instance.Play(Sounds.PlayerMove);
+        StartCoroutine(HideAchievementPopup());
+    }
+
+    private IEnumerator HideAchievementPopup()
+    {
+        yield return new WaitForSeconds(2f); // Show popup for 2 seconds
+        achievementPopupText.gameObject.SetActive(false); // Hide popup
     }
     public void ResetScore()
     {
