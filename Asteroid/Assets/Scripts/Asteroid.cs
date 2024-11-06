@@ -53,6 +53,7 @@ public class Asteroid : MonoBehaviour
                 CreateSplit();
             }
             FindObjectOfType<GameManager>().AsteroidDestoryed(this);
+            SoundManager.Instance.Play(Sounds.AsteroidBreak);
             Destroy(this.gameObject);
         }
     }
@@ -60,6 +61,7 @@ public class Asteroid : MonoBehaviour
 
     private Asteroid CreateSplit()
     {
+
         Vector2 position = this.transform.position;
         position += Random.insideUnitCircle * 0.5f;
 
@@ -69,7 +71,7 @@ public class Asteroid : MonoBehaviour
 
         // Set a random trajectory
         half.SetTrajectory(Random.insideUnitCircle.normalized );
-
+        SoundManager.Instance.Play(Sounds.AsteroidBreak);
         return half;
     }
 }

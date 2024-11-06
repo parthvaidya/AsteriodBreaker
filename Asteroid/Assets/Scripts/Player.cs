@@ -54,6 +54,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void Shoot()
     {
+        SoundManager.Instance.Play(Sounds.Shoot);
         Bullet bullet = Instantiate(this.bullets, this.transform.position, this.transform.rotation);
         bullet.Project(this.transform.up);
     }
