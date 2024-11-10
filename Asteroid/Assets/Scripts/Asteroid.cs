@@ -7,8 +7,9 @@ public class Asteroid : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
-    public Sprite[] sprites;
+    [SerializeField] private Sprite[] sprites;
 
+    //fields accessed publically cannot be private
     public float size = 1f;
     public float minSize = 0.35f;
     public float maxSize = 1.65f;
@@ -52,7 +53,8 @@ public class Asteroid : MonoBehaviour
                 CreateSplit();
                 CreateSplit();
             }
-            FindObjectOfType<GameManager>().AsteroidDestoryed(this);
+            GameManager.Instance.AsteroidDestroyed(this);
+            
             SoundManager.Instance.Play(Sounds.AsteroidBreak);
             Destroy(this.gameObject);
         }

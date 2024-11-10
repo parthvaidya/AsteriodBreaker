@@ -10,8 +10,8 @@ public class Powerups : MonoBehaviour
     public PowerupType powerupType;
 
     private Rigidbody2D _rigidbody;
-    public float speed = 1.5f;
-    public float maxLifetime = 10f;
+    [SerializeField] private float speed = 1.5f;
+    [SerializeField] private float maxLifetime = 10f;
     
     private void Awake()
     {

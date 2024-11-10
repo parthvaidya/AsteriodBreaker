@@ -22,6 +22,19 @@ public class GameManager : MonoBehaviour
     public float scoreBoostDuration = 5.0f;
     private bool hasReached200Points = false;
 
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);  // Ensures there's only one GameManager
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     public void Start()
     {
         UpdateLivesUI();
@@ -47,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void AsteroidDestoryed(Asteroid asteroid)
+    public void AsteroidDestroyed(Asteroid asteroid)
     {
         this.explosion.transform.position = this.player.transform.position;
         this.explosion.Play();
