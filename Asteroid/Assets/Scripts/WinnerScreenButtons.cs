@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class WinnerScreenButtons : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Button restartButton; // Assign in Inspector or find in code
-    public Button lobbyButton;
+    [SerializeField] private Button restartButton; // Assign in Inspector or find in code
+    [SerializeField] private Button lobbyButton;
 
     private void Start()
     {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EndScreen : MonoBehaviour
 {
-    public Button lobbyButton;
+    [SerializeField] private Button lobbyButton;
 
     private void Start()
     {

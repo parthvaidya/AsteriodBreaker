@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class LobbyButtons : MonoBehaviour
 {
-    public Button startButton; 
-    public Button quitButton;
+    [SerializeField] private Button startButton; 
+    [SerializeField] private Button quitButton;
 
     private void Start()
     {

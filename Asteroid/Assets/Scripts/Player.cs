@@ -5,12 +5,13 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
 
-    public bool thrusting;
-    public Bullet bullets;
-    public float turnSpeed = 1.0f;
+    [SerializeField] private bool thrusting;
+    [SerializeField] private Bullet bullets;
+    [SerializeField] private float turnSpeed = 1.0f;
     private Rigidbody2D _rigidBody;
     public float thrustSpeed = 1.0f;
     private float _turnDirection;
+    //private GameManager _gameManager;
    
     private void Awake()
     {
@@ -67,19 +68,11 @@ public class NewBehaviourScript : MonoBehaviour
             _rigidBody.velocity = Vector3.zero;
             _rigidBody.angularVelocity = 0f;
 
-            //GameManager.Instance.OnPlayerDeath(this);
-            FindObjectOfType<GameManager>().PlayerDied();
+            GameManager.Instance.PlayerDied();
+            
         }
     }
 
 
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-        
-    }
+    
 }
