@@ -12,7 +12,7 @@ Asteroid Breaker is an action-packed space game where you control a spaceship th
 In Asteroid Breaker, the player controls a spaceship and must navigate through a dangerous asteroid field. The goal is to destroy asteroids to increase the score, while dodging asteroid collisions to survive. Players have 3 lives and can collect various power-ups to aid in the journey. Reach a score of 250 to win!
 
 # Video Gameplay: https://drive.google.com/file/d/1iCRS7UGs33tRTjATmdJ-8zRgQ5w86k5Z/view?usp=sharing
-
+# Playable Link: https://outscal.com/parthvaidya99/game/play-asteroid-breaker-2d-1-game
 
 # Features:
 1 Powerups:
